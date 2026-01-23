@@ -9,7 +9,7 @@ class CreateWorkoutLogRequest(BaseModel):
     workout_id: int
     weight: float
     reps: int
-    created_at: Optional[datetime] = None  # Add this line
+    created_at: Optional[datetime] = None 
 
 class ProgressPoint(BaseModel):
     created_at: datetime
@@ -29,6 +29,6 @@ class WorkoutLogResponse(BaseModel):
     id: int
     weight: float
     reps: int
-    workout_id: int  # Ensure this matches your DB type (int)
+    workout_id: int  
     created_at: datetime
 
