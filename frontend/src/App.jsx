@@ -15,14 +15,11 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-
-  // Filter the list based on what the user types
   const filteredWorkouts = workoutList.filter(workout =>
     workout.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
 
-  // Get the name of the currently selected workout to show in the box
   const selectedWorkoutName = workoutList.find(w => w.id.toString() === workoutId.toString())?.name || "Select exercise...";
 
   const loadData = async () => {
@@ -106,15 +103,14 @@ function App() {
     transition: 'border-color 0.2s'
   };
 
-  // Updated UI Styles for a wider feel
   const cardStyle = {
     background: '#fff',
     borderRadius: '16px',
     boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
-    padding: '32px', // Increased padding
+    padding: '32px',
     marginBottom: '24px',
     border: '1px solid #f1f5f9',
-    height: '100%' // Allows cards in a row to match heights
+    height: '100%' 
   };
 
   return (
@@ -193,7 +189,7 @@ function App() {
                     placeholder="Search exercises..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    onClick={(e) => e.stopPropagation()} // Prevents closing when clicking input
+                    onClick={(e) => e.stopPropagation()} 
                     style={{
                       width: '100%',
                       padding: '12px',
@@ -216,7 +212,7 @@ function App() {
                           onClick={() => {
                             setID(workout.id.toString());
                             setIsDropdownOpen(false);
-                            setSearchTerm(''); // Clear search after selection
+                            setSearchTerm(''); 
                           }}
                           style={{
                             padding: '10px 15px',
@@ -344,7 +340,7 @@ function App() {
                         placeholder="Enter exercise name..."
                         value={newWorkoutName}
                         onChange={(e) => setNewWorkoutName(e.target.value)}
-                        style={{...inputStyle, flex: 1, backgroundColor: '#f8fafc', color: '#0f172a', // <--- ADD THIS LINE
+                        style={{...inputStyle, flex: 1, backgroundColor: '#f8fafc', color: '#0f172a', 
                         border: '1px solid #e2e8f0'}}
                     />
                     <button type="submit" style={{
